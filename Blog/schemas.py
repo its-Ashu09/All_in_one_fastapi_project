@@ -1,8 +1,9 @@
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List
 class BlogBase(BaseModel):
     title: str
     body: str
+    User_id :int
 
 class Blog(BlogBase):
     class Config():
@@ -30,3 +31,19 @@ class ShowBlog(BaseModel):
     
     class Config:
         orm_mode = True
+
+
+
+class Login(BaseModel):
+    username:str
+    password:str
+
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    email: str | None = None
