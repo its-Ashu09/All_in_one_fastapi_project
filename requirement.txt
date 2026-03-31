@@ -4,3 +4,4 @@ sqlalchemy
 pwdlib
 pyjwt
 python-multipart
+python-dotenv
