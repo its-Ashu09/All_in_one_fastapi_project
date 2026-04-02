@@ -7,7 +7,7 @@ class BlogBase(BaseModel):
 
 class Blog(BlogBase):
     class Config():
-        orm_mode = True
+        orm_mode = True  #SQLAlchemy object ko JSON me convert karne deta hai aur.
 
 class User(BaseModel):
     name:str

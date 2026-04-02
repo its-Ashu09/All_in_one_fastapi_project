@@ -1,9 +1,9 @@
 from fastapi import APIRouter , Depends, HTTPException,status
 from Blog.database import get_db
 from Blog.hashing import Hash
-from fastapi.security import OAuth2PasswordRequestForm
+from fastapi.security import OAuth2PasswordRequestForm #Login form handle karta hai e automatically username aur password le leta hai request se
 from sqlalchemy.orm import Session
-from Blog import schemas ,  models, token
+from Blog import models, token
 router = APIRouter(
     tags=["authentication"]
 )

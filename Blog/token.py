@@ -9,21 +9,22 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 
 
-def create_access_token(data: dict):
+def create_access_token(data: dict): # taking the email of the user and encoding it into a token
     to_encode = data.copy()
     expire = datetime.now(timezone.utc) + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES )
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-    return encoded_jwt
+    return encoded_jwt #token create karne ke baad usko return karna hai taki usko use karke user apne aap ko authenticate kar sake
 
 
 
-def verify_token(token:str, credentials_exception):
+def verify_token(token:str, credentials_exception): # ye function token ko verify karega aur agar token valid hoga to usme se email nikal ke return karega aur agar token invalid hoga to credentials_exception raise karega
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         email = payload.get("sub")
         if email is None:
             raise credentials_exception
         token_data = schemas.TokenData(email=email)
+        return token_data
     except InvalidTokenError:
         raise credentials_exception
