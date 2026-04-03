@@ -5,3 +5,4 @@ pwdlib
 pyjwt
 python-multipart
 python-dotenv
+pip install psycopg2-binary

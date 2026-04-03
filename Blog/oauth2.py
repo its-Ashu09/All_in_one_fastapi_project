@@ -14,5 +14,5 @@ def get_current_user(data: str = Depends(oauth2_scheme)):
     
     
     #now token automaticaly goes into data variable and we have to verify it.
-     return token.verify_token(data,credentials_exception) 
+     return token.verify_token(data,credentials_exception)
     

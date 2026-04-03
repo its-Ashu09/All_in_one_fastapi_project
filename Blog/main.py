@@ -14,9 +14,11 @@ app.include_router(blog.router)
 app.include_router(user.router)
 
 
+
 @app.get('/',tags=["Home"])
 def Home():
     return {'message':'lets build'}
+
 
 
 

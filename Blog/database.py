@@ -6,10 +6,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-mysql_url = os.getenv("DATABASE_url")
+DATABASE_URL = os.getenv("DATABASE_url")
 
 
-engine = create_engine(mysql_url)  # engine manages connections and translates Python ORM commands into SQL queries.
+engine = create_engine(DATABASE_URL)  # engine manages connections and translates Python ORM commands into SQL queries.
 
 SessionLocal = sessionmaker(bind=engine,autocommit=False,autoflush=False)
 
